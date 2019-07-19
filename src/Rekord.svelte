@@ -21,14 +21,14 @@ axios.get('https://gkk-styrkelyft.se/rekord/api.php').then(({ data }) => {
 }) 
 
 // Sort by selected event, and allow second click to reverse order
-let lastClicked = 'Damer|Klass'
+let lastClicked = 'Klass'
 let sortOrder = 1
-function sortBy (gender, column) {
-  sortOrder = `${gender}|${column}` === lastClicked ? -sortOrder : 1
-  lastClicked = `${gender}|${column}`
+function sortBy (column) {
+  sortOrder = column === lastClicked ? -sortOrder : 1
+  lastClicked = column
 
-  records[gender.toLowerCase()].sort((a, b) => {
-    return sortOrder * a[column].localeCompare(b[column], undefined, { numeric: true })
+  ;['herrar', 'damer'].forEach(gender => {
+    records[gender].sort((a, b) => sortOrder * a[column].localeCompare(b[column], undefined, { numeric: true }))
   })
 
   records = records;
@@ -88,9 +88,9 @@ tr:nth-child(even){background-color: #f2f2f2;}
       <thead>
         <tr>
           {#each columns as column}
-            <th on:click={() => sortBy(gender, column)}>
+            <th on:click={() => sortBy(column)}>
               { column }
-              {#if lastClicked === `${gender}|${column}`}
+              {#if lastClicked === column}
                   <i class="fa fa-arrow-{sortOrder === 1 ? 'up' : 'down'}"></i>
               {/if}
             </th>
