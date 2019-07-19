@@ -1,5 +1,5 @@
 # GKK Records rendering using Svelte
-Live at https://gkk-styrkelyft.se/rekord/
+Live at https://gkk-styrkelyft.se/klubbrekord/
 
 This is my first attempt at using Svelte. Any notes about best practices I've missed or other ideas are welcome.
 
