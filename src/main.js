@@ -1,7 +1,7 @@
 import Rekord from './Rekord.svelte'
 
 const app = new Rekord({
-	target: document.getElementById('main')
+	target: document.getElementById('primary')
 })
 
 export default app
