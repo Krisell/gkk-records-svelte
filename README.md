@@ -1,3 +1,5 @@
+## This project has been deprecated. GKK record handling is now part of https://github.com/krisell/gkk-anmalan
+
 # GKK Records rendering using Svelte
 Live at https://gkk-styrkelyft.se/klubbrekord/
 
